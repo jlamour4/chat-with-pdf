@@ -8,12 +8,13 @@ export async function POST(req: NextRequest) {
   const headersList = headers();
   const body = await req.text(); // important: must be req.text() not req.json()
   const signature = headersList.get("stripe-signature");
+  let WEBHOOK_SECRET = process.env.IS_STRIPE_TEST_MODE == "true" ? process.env.STRIPE_WEBHOOK_SECRET_TEST : process.env.STRIPE_WEBHOOK_SECRET_LIVE
 
   if (!signature) {
     return new Response("No signature", { status: 400 });
   }
 
-  if (!process.env.STRIPE_WEBHOOK_SECRET) {
+  if (!WEBHOOK_SECRET) {
     console.log("⚠️ Stripe webhook secret is not set.");
     return new NextResponse("Stripe webhook secret is not set", {
       status: 400,
@@ -26,7 +27,7 @@ export async function POST(req: NextRequest) {
     event = stripe.webhooks.constructEvent(
       body,
       signature,
-      process.env.STRIPE_WEBHOOK_SECRET
+      WEBHOOK_SECRET
     );
   } catch (err) {
     console.error(`Webhook Error: ${err}`);
