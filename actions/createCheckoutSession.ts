@@ -9,6 +9,9 @@ import { auth } from "@clerk/nextjs/server";
 export async function createCheckoutSession(userDetails: UserDetails) {
   const { userId } = await auth();
 
+  const testPrice = "price_1Pj0WJJ459NYPh4qk18Z4hNF";
+  const livePrice = "price_1PilNOJ459NYPh4qWENRrG7U";
+
   if (!userId) {
     throw new Error("User not found");
   }
@@ -40,7 +43,7 @@ export async function createCheckoutSession(userDetails: UserDetails) {
     payment_method_types: ["card"],
     line_items: [
       {
-        price: "price_1Pj0WJJ459NYPh4qk18Z4hNF",
+        price: process.env.IS_STRIPE_TEST_MODE == "true" ? testPrice : livePrice,
         quantity: 1,
       },
     ],
