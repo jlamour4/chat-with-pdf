@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Chat With PDF
 
-## Getting Started
+Upload your document, and our chatbot will answer questions, summarize content, and answer all your Qs. Ideal for everyone, Chat with PDF turns static documents into dynamic conversations enhancing productivity 10x fold effortlessly.
 
-First, run the development server:
+This project is built using TypeScript, React, Next.js, Styled-components, OpenAI, Clerk, Stripe, and Firebase. It was initially inspired by an online coding challenge, but I have modified and expanded upon it using different technologies to enhance its functionality and design.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Table of Contents
+- [Features](#features)
+- [Live Demo](#live-demo)
+- [Installation](#installation)
+- [Contributing](#contributing)
+- [License](#license)
+- [Acknowledgements](#acknowledgements)
+- [Contact](#contact)
+
+## Features
+
+- Keep all your important PDF files securely stored and easily accessible anytime, anywhere.
+- Experience lightning—fast answers to your queries, ensuring you get the information you need instantly.
+- Our intelligent chatbot remembers previous interactions, providing a seamless and personalized experience.
+- Engage with your PDFs like never before using our intuitive and interactive viewer.
+- Rest assured knowing your documents are safely backed up on the cloud, protected from loss or damage.
+- Access and chat with your PDFs seamlessly on any device, whether it's your desktop, tablet, or smartphone.
+
+## Live Demo
+
+Check out the live demo of Chat With PDF: [Live Demo](https://chat-with-pdf-jlamour4s-projects.vercel.app/)
+
+## Installation
+
+1. Clone the repository to your local machine.
+2. Navigate to the project directory.
+3. Install the necessary dependencies by running the following command:
+
+```shell
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Configure the Firebase credentials and all the necessary environment variables detailed in the `env.txt` file.
+5. Start the development server by running the following command:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```shell
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+6. Open your web browser and visit `http://localhost:3000` to access the application on your local machine.
 
-## Learn More
+## Contributing
 
-To learn more about Next.js, take a look at the following resources:
+Contributions are welcome! If you encounter any issues or have suggestions for improvements, please open an issue or submit a pull request to contribute to the project.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+When contributing, please ensure to follow the existing coding style and conventions. Additionally, include clear descriptions and steps to reproduce any bug reports.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## License
 
-## Deploy on Vercel
+This project is licensed under the [MIT License](LICENSE).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Feel free to use this code for personal or commercial purposes, modify it to meet your requirements, and share it with others.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Acknowledgements
+
+This project was initially developed based on a tutorial, and I would like to express my gratitude to the original author for providing the foundation. I have expanded upon the initial tutorial to add new features and make improvements.
+
+## Contact
+
+If you have any questions or need further assistance, please feel free to contact me:
+
+- Email: [jlamour4@gmail.com](mailto:jlamour4@gmail.com)
+
+Thank you for your interest in this project! Happy coding!
