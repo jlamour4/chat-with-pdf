@@ -1,70 +1,84 @@
 # Chat With PDF
 
-Upload your document, and our chatbot will answer questions, summarize content, and answer all your Qs. Ideal for everyone, Chat with PDF turns static documents into dynamic conversations enhancing productivity 10x fold effortlessly.
+A Next.js app for uploading PDFs, generating document embeddings, and asking questions against uploaded content.
 
-This project is built using TypeScript, React, Next.js, Styled-components, OpenAI, Clerk, Stripe, and Firebase. It was initially inspired by an online coding challenge, but I have modified and expanded upon it using different technologies to enhance its functionality and design.
-
-## Table of Contents
-- [Features](#features)
-- [Live Demo](#live-demo)
-- [Installation](#installation)
-- [Contributing](#contributing)
-- [License](#license)
-- [Acknowledgements](#acknowledgements)
-- [Contact](#contact)
+This project is a practical experiment in document Q&A: users can upload PDFs, store them in Firebase, generate embeddings with OpenAI/LangChain/Pinecone, and interact with the documents through a chat-style interface.
 
 ## Features
 
-- Keep all your important PDF files securely stored and easily accessible anytime, anywhere.
-- Experience lightning—fast answers to your queries, ensuring you get the information you need instantly.
-- Our intelligent chatbot remembers previous interactions, providing a seamless and personalized experience.
-- Engage with your PDFs like never before using our intuitive and interactive viewer.
-- Rest assured knowing your documents are safely backed up on the cloud, protected from loss or damage.
-- Access and chat with your PDFs seamlessly on any device, whether it's your desktop, tablet, or smartphone.
+- PDF upload and storage
+- Authenticated user flows with Clerk
+- Document parsing and embedding generation
+- Question answering over uploaded PDF content
+- Dashboard for managing uploaded documents
+- Stripe checkout/customer portal flow for SaaS-style billing experiments
 
-## Live Demo
+## Tech stack
 
-Check out the live demo of Chat With PDF: [Live Demo](https://chat-with-pdf-jlamour4s-projects.vercel.app/)
+- **Framework:** Next.js 14, React, TypeScript
+- **Auth:** Clerk
+- **Storage / data:** Firebase, Firebase Admin
+- **AI / retrieval:** OpenAI, LangChain, Pinecone
+- **Payments:** Stripe
+- **UI:** Tailwind CSS, Radix UI, Lucide React
 
-## Installation
+## Project structure
 
-1. Clone the repository to your local machine.
-2. Navigate to the project directory.
-3. Install the necessary dependencies by running the following command:
-
-```shell
-npm install
+```text
+.
+├── actions/          # Server actions for Q&A, embeddings, Stripe, document management
+├── app/              # Next.js app routes and pages
+├── components/       # Shared UI components
+├── hooks/            # React hooks
+├── lib/              # Shared utilities
+├── firebaseAdmin.ts  # Firebase Admin setup
+└── middleware.ts     # Clerk middleware
 ```
 
-4. Configure the Firebase credentials and all the necessary environment variables detailed in the `env.txt` file.
-5. Start the development server by running the following command:
+## Getting started
 
-```shell
+### Prerequisites
+
+- Node.js 20+
+- npm
+- Clerk project
+- Firebase project/storage bucket
+- OpenAI API key
+- Pinecone API key/index
+- Stripe account/API keys, if using payment flows
+
+### Setup
+
+```bash
+git clone https://github.com/jlamour4/chat-with-pdf.git
+cd chat-with-pdf
+npm install
+cp .env.example .env.local
+```
+
+Fill in `.env.local` with your own service credentials.
+
+```bash
 npm run dev
 ```
 
-6. Open your web browser and visit `http://localhost:3000` to access the application on your local machine.
+Open `http://localhost:3000`.
 
-## Contributing
+## Environment variables
 
-Contributions are welcome! If you encounter any issues or have suggestions for improvements, please open an issue or submit a pull request to contribute to the project.
+See [`.env.example`](./.env.example) for the expected variable names.
 
-When contributing, please ensure to follow the existing coding style and conventions. Additionally, include clear descriptions and steps to reproduce any bug reports.
+The example file intentionally uses placeholders only. Do not commit real API keys, Firebase credentials, Stripe secrets, or Clerk secrets.
 
-## License
+## Available scripts
 
-This project is licensed under the [MIT License](LICENSE).
+```bash
+npm run dev      # Start local development server
+npm run build    # Build for production
+npm run start    # Start production server
+npm run lint     # Run Next.js linting
+```
 
-Feel free to use this code for personal or commercial purposes, modify it to meet your requirements, and share it with others.
+## Notes
 
-## Acknowledgements
-
-This project was initially developed based on a tutorial, and I would like to express my gratitude to the original author for providing the foundation. I have expanded upon the initial tutorial to add new features and make improvements.
-
-## Contact
-
-If you have any questions or need further assistance, please feel free to contact me:
-
-- Email: [jlamour4@gmail.com](mailto:jlamour4@gmail.com)
-
-Thank you for your interest in this project! Happy coding!
+This was originally inspired by an online coding challenge/tutorial and then expanded with additional services and product-style features. It is best treated as a portfolio project and learning sandbox rather than a polished production SaaS.
